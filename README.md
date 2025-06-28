@@ -14,7 +14,7 @@ pnpm install
 
 ## Iniciar el servidor
 
-Para inciar el proyecto ejectuar el siguiente comando:
+Para inciar el proyecto ejecutar el siguiente comando:
 
 ```bash
 pnpm run dev
