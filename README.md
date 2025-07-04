@@ -18,6 +18,7 @@ Para inciar el proyecto ejecutar el siguiente comando:
 
 ```bash
 pnpm run dev
+```
 
 ## Instalación de next@canary 
 
@@ -27,4 +28,4 @@ rutas dinamicas y estáticas en la misma ruta.
 ```bash
 
 pnpm install next@canary 
-
+```
