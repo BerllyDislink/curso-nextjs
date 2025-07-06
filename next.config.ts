@@ -1,6 +1,10 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  // experimental: {
+  //   ppr: 'incremental', //el incremental es para que next.js adopte ppr a rutas especificas
+  // },
+
   /* config options here */
 };
 
