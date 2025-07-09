@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { useSearchParams } from 'next/navigation';
 
 export default function Search({ placeholder }: { placeholder: string }) {
-  const searchParams = useSearchParams(); // get the search params from the url
+  const searchParams = useSearchParams(); // Permite obtener los parametros de la url
   function handleSearch(term: string){
     console.log(term)
     const params = new URLSearchParams(searchParams);
