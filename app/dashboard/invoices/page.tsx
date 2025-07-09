@@ -15,10 +15,8 @@ export default async function Page() {
                 </h1>
             </div>
             <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
-            <Suspense fallback={<div>Loading search...</div>}>
-          <Search placeholder="Search invoices..." />
-        </Suspense>
-        <CreateInvoice />
+                <Search placeholder="Search invoices..." />
+                <CreateInvoice />
             </div>
             {/*  <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
