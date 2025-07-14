@@ -8,7 +8,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
   const pathname = usePathname(); // Permite obtener la ruta actual
   const { replace } = useRouter(); // Permite reemplazar la ruta actual
   function handleSearch(term: string){
-    console.log(term)
+    console.log(`Searching...${term}`)
     const params = new URLSearchParams(searchParams);
     if(term){
       params.set('query', term);
