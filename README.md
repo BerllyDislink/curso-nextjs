@@ -29,3 +29,10 @@ rutas dinamicas y estáticas en la misma ruta.
 
 pnpm install next@canary 
 ```
+## Instalacion de debounce
+
+Se hace la instalacion de la libreria para el debounce
+
+```bash
+pnpm i use-debounce
+```
