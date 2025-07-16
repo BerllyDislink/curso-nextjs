@@ -6,6 +6,7 @@ import { InvoicesTableSkeleton } from "@/app/ui/skeletons"
 import { Suspense } from "react"
 import { invoices } from "@/app/lib/placeholder-data"
 import Table from "@/app/ui/invoices/table"
+import { fetchInvoicesPages } from '@/app/lib/data'
 
 export default async function Page(props: {
     searchParams?: Promise<{
@@ -16,6 +17,7 @@ export default async function Page(props: {
     const searchParams = await props.searchParams;
     const query = searchParams?.query || "";
     const currentPage = Number(searchParams?.page) || 1;
+    const totalPages = await fetchInvoicesPages(query); // se hace uso de fetchinvoices y se le pasa el query para obtener la página requerida
     return(
         <div className="w-full">
             <div className="flex w-full items-center justify-between">
@@ -33,7 +35,7 @@ export default async function Page(props: {
         <Table query={query} currentPage={currentPage} />
       </Suspense>
       <div className="mt-5 flex w-full justify-center">
-        {/* <Pagination totalPages={totalPages} /> */}
+        <Pagination totalPages={totalPages} />
       </div>
         </div>
     )
