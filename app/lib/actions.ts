@@ -1,6 +1,11 @@
 'use server';
 
 import { z } from 'zod';
+import { revalidatePath } from 'next/cache'; //revalidar la ruta para que se actualice la pagina
+import { redirect } from 'next/navigation'; //redirigir a la pagina de facturas
+import postgres from 'postgres'; //importar postgres
+
+const sql = postgres(process.env.POSTGRES_URL!, {ssl: require}); //conectar a la base de datos
 
 const FormSchema = z.object({
     id: z.string(),
@@ -25,5 +30,12 @@ const {customerId, amount,status} = CreateInvoice.parse({
 const amountInCents = amount * 100;
 const date = new Date().toISOString().split('T')[0];
    
+await sql`
+INSERT INTO invoices (customer_id, amount, status, date)
+VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
+`;
 
+revalidatePath('/dashboard/invoices'); //revalidar la ruta para que se actualice la pagina
+redirect('/dashboard/invoices'); //redirigir a la pagina de facturas
 }
+
