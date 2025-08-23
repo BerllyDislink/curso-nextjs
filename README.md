@@ -36,3 +36,10 @@ Se hace la instalacion de la libreria para el debounce
 ```bash
 pnpm i use-debounce
 ```
+## Instalacion de next lint
+
+Se hace uso de next lint para ver posibles errores en nuestros textos, imágenes y demás
+
+```bash
+pnpm lint
+```
