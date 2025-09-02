@@ -67,11 +67,22 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 step="0.01"
                 placeholder="Enter USD amount"
                 className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                aria-describedby="amount-error"
+                
               />
               <CurrencyDollarIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
+                 <div id="amount-error" aria-live="polite" aria-atomic="true">{/*Agregado mensaje de error de campo vacio*/}
+        {state.errors?.amount &&
+          state.errors.amount.map((error: string) => (
+            <p className="mt-2 text-sm text-red-500" key={error}>
+              {error}
+            </p>
+          ))}
+      </div>
         </div>
+ 
 
         {/* Invoice Status */}
         <fieldset>
@@ -102,7 +113,8 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                   type="radio"
                   value="paid"
                   className="h-4 w-4 cursor-pointer border-gray-300 bg-gray-100 text-gray-600 focus:ring-2"
-                />
+                  aria-describedby='status-error' 
+                />{/*Agregada propiedad que muestra el mensaje de error en aria-describedby*/}
                 <label
                   htmlFor="paid"
                   className="ml-2 flex cursor-pointer items-center gap-1.5 rounded-full bg-green-500 px-3 py-1.5 text-xs font-medium text-white"
@@ -113,7 +125,23 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
             </div>
           </div>
         </fieldset>
+              <div id="status" aria-atomic="true" aria-live="polite"> {/*Agregado mensaje de error de campo vacio*/}
+        {state.errors?.status && 
+        state.errors.status.map((error: string)=> (
+          <p className="mt-2 text-sm text-red-500" key={error}>
+            {error}
+          </p>
+        ))}
       </div>
+ <div id="message" aria-atomic="true" aria-live="polite">  {/*agregado mensaje de error general de campos vacios*/}
+  {state.message && (
+    <p className="mt-2 text-sm text-red-500">
+      {state.message}
+    </p>
+  )}
+</div>
+      </div>
+
       <div className="mt-6 flex justify-end gap-4">
         <Link
           href="/dashboard/invoices"
