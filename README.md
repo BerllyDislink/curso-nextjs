@@ -44,10 +44,11 @@ Se hace uso de next lint para ver posibles errores en nuestros textos, imágenes
 pnpm lint
 ```
 
-```
+
 ## Instalacion de NextAuth
 
 Se hace uso de NextAuth para todo lo relacionado a la autenticación de nuestro aplicación web, esta simplifica el proceso y nos ahorra errores que podríamos cometer si lo hicieramos nosotros mismos. 
 
 ```bash
 pnpm i next-auth@beta
+```
